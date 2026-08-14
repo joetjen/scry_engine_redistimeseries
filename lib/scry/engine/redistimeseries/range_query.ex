@@ -74,6 +74,12 @@ defmodule Scry.Engine.RedisTimeSeries.RangeQuery do
           value_max: float() | nil
         }
 
+  @doc """
+  Compiles `wheres` (with `params` resolving any `{:param, name}`
+  placeholder) into `TS.RANGE`'s own `from`/`to`/`FILTER_BY_VALUE`
+  bounds, all-or-nothing -- this module's own moduledoc has the
+  complete "what compiles" reasoning.
+  """
   @spec compile([Query.predicate()], map()) ::
           {:ok, compiled()} | {:error, {:unsupported, term()}}
   def compile(wheres, params) do
