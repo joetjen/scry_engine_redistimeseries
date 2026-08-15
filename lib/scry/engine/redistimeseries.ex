@@ -33,7 +33,7 @@ defmodule Scry.Engine.RedisTimeSeries do
   lowered predicate compares against a field no row has, which
   `Scry.Core.QueryOps`'s own generic null-safety check already catches
   as a real, clear error on its own (comparing a genuinely absent
-  field is exactly the null-safety violation lang_spec.md §7 requires
+  field is exactly the null-safety violation that check requires
   raising for) -- no special handling needed here for that case.
 
   Unlike `timestamp`/`value` in most SQL/document stores, **both
@@ -52,9 +52,9 @@ defmodule Scry.Engine.RedisTimeSeries do
   native `AGGREGATION` construct buckets *by time*, not by an
   arbitrary field the way SQL `GROUP BY` does, and Scry's own language
   has no time-bucketing/hypertable construct yet to translate a real
-  `GROUP BY` into that shape even in principle (impl_spec.md §6's own
-  corrected `scry_engine_timescaledb` entry already found the
-  identical gap from the SQL side). `ORDER BY`/`LIMIT`/`OFFSET` are
+  `GROUP BY` into that shape even in principle (the corrected
+  `scry_engine_timescaledb` entry already found the identical gap
+  from the SQL side). `ORDER BY`/`LIMIT`/`OFFSET` are
   **not** pushed down to `TS.RANGE` at all -- deliberately: `TS.RANGE`
   has no server-side sort-direction or offset concept, and pushing
   down only `COUNT` (`LIMIT`) while leaving direction to be applied

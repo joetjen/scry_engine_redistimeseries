@@ -13,12 +13,10 @@ translate *into*, only a fixed numeric-range command shape.
 Named for the driver, product-qualified rather than driver-qualified:
 `redix` also backs [`scry_engine_redisearch`](https://github.com/joetjen/scry_engine_redisearch)
 (a different kind contract, same driver), so neither can claim the
-bare `scry_engine_redix` (impl_spec.md §2's own naming-collision
-fallback rule).
+bare `scry_engine_redix`.
 
 Source: <https://github.com/joetjen/scry_engine_redistimeseries>.
-Specs live in the separate [`scry`](https://github.com/joetjen/scry)
-repository; the behaviour this implements lives in
+The behaviour this implements lives in
 [`scry_core`](https://github.com/joetjen/scry_core).
 
 ## Usage

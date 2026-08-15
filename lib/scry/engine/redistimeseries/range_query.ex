@@ -19,8 +19,8 @@ defmodule Scry.Engine.RedisTimeSeries.RangeQuery do
   module's own moduledoc has the full reasoning) -- combined only via
   `{:and, l, r}` (an implicit multi-item `wheres` list is `AND`ed the
   same way; a literal `{:and, ...}` node parses to the identical
-  shape). This is deliberately exactly wide enough for lang_spec.md
-  §8.2's own two `LAST` forms once `scry_time_series`'s own lowering
+  shape). This is deliberately exactly wide enough for the two `LAST`
+  forms once `scry_time_series`'s own lowering
   pass has already rewritten them into ordinary comparisons before
   this module ever sees them: `LAST <duration> OF <field>` lowers to
   one lower timestamp bound, `LAST <from> TO <to> OF <field>` lowers

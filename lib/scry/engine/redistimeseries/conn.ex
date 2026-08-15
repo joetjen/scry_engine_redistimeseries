@@ -3,7 +3,7 @@ defmodule Scry.Engine.RedisTimeSeries.Conn do
   Wraps a `redix` connection pid -- opened once via `open/1` and meant
   to be reused across many `Scry.Engine.RedisTimeSeries.execute/3`
   calls, matching the connection/config struct every real adapter
-  exposes (impl_spec.md §2). Unlike `Scry.Engine.Ch.Conn`/`Scry.Engine.
+  exposes. Unlike `Scry.Engine.Ch.Conn`/`Scry.Engine.
   Myxql.Conn` (both `DBConnection`-based pool processes), `redix` is
   its own lightweight `GenServer` wrapping a single reconnecting TCP
   socket -- `Redix.start_link/1` already returns a plain, directly

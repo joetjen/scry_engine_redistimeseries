@@ -43,14 +43,13 @@ defmodule Scry.Engine.RedisTimeSeries.MixProject do
       # `Scry.Core.EngineBehaviour` and returns `Scry.Core.Query.t()`-
       # shaped data, so it's the real dependency, not test-only. Switch
       # to a `~> x.y` Hex requirement once scry_core is actually
-      # published (impl_spec.md's own dependency-versions convention).
+      # published.
       {:scry_core, path: "../scry_core"},
 
       # === REDIS DRIVER ===
       # Product-named, not driver-named -- `redix` also backs
       # `scry_engine_redisearch` (a different kind contract, same
-      # driver), so neither can claim the bare `scry_engine_redix`
-      # (impl_spec.md §2's own naming-collision fallback rule).
+      # driver), so neither can claim the bare `scry_engine_redix`.
       {:redix, "~> 1.6"},
 
       # === CODE QUALITY & STATIC ANALYSIS ===
